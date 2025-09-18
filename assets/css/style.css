@@ -1,22 +1,232 @@
 /* Typografi */
-@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import url("https: //fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* Variables */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
+  --DustyBlue: #93A3C1;
+  --WarmSand: #DAA883;
+  --RustyRed: #AD4B3A;
+  --Beige: #EDE6DC;
+
+  --smSpacer: 15px;
+  --stdSpacer: 25px;
+  --lgSpacer: 50px;
+
+  --font-size-small: 0.8rem;
+  --font-size-normal: 1rem;
+  --font-size-large: 1.5rem;
+  --font-size-xlarge: 2.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Petit Formal Script", cursive;
+}
+
+
+p {
+  font-family: "Inter", serif;
+  line-height: 1.5;
+  max-width: 65ch;
+}
+
+a {
+  font-family: "Inter", serif;
+}
+
+body {
+  background-color: var(--Beige);
 }
 
 /* General styling */
 /* Header */
 /* Navbar */
-/* Footer */
+
+header {
+  position: relative;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: var(--smSpacer);
+  background: var(--Beige);
+}
+
+/* Logo */
+.navbarLogo img {
+  display: block;
+  height: 60px;
+  width: auto;
+}
+
+/* Menuliste */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--stdSpacer);
+  margin: 0;
+  padding: 2px;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+nav li {
+  display: flex;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-size: var(--font-size-normal, 1rem);
+  line-height: 1;
+  padding: 9px 0;
+  position: relative;
+}
+
+nav a::after {
+  bottom: -4px;
+  height: 1px;
+  
+  background: #000000;
+  transform-origin: left;
+  transition: transform .25s ease;
+}
 
 
+nav a.active {
+  font-weight: 600;
+}
+
+/* Søg + ikon */
+.søgefelt {
+  position: relative;
+  margin-left: auto;
+  padding-right: 40px;
+}
+
+.søgefelt input {
+  font-family: "Inter", sans-serif;
+  padding: 0.35rem 2.5rem 0.35rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #000000a4;
+  border-radius: 100px;
+  width: 220px;
+}
+
+/* Login */
+
+.login a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #000;
+  font-family: "Inter", sans-serif;
+  white-space: nowrap;
+}
+
+.login img {
+  display: block;
+  height: 22px;
+  width: 22px;
+}
+
+/* Hero */
+
+.hero {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  height: 800px;
+  background: url("../img/Hero1.png") top center / cover no-repeat;
+}
+
+/* main */
+/* top recipe cards */
+
+.recipeCards {
+  display: grid;
+    grid-template-columns: repeat(3, 448px);
+    gap: var(--stdSpacer);
+    padding: var(--stdSpacer);
+    margin-top: var(--lgSpacer);
+  justify-content: center;
+}
+
+.recipeCards .card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  width: 448px;
+    height: 354px;
+  
+}
+
+.recipeCards .card img {
+  display: block;
+  width: 448px;
+    height: 354px;
+  object-fit: cover;
+}
+
+
+.recipeCards .card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 42%;
+  background: linear-gradient(0deg,
+      rgba(147, 163, 193, 0.935) 50%,
+      rgb(147 163 193 / 60%) 85%,
+      rgb(147 163 193 / 0%) 110%);
+  pointer-events: none;
+  z-index: 1;
+
+}
+
+.recipeCards .card h3,
+.recipeCards .card p {
+  position: absolute;
+  left: 18px;
+  color: #fff;
+  margin: 0;
+  z-index: 2;
+}
+
+.recipeCards .card h3 {
+  bottom: 35px;
+  font-size: var(--font-size-large);
+}
+
+.recipeCards .card p {
+  bottom: 10px;
+  text-decoration: underline;
+  font-size: var(--font-size-small);
+}
 
 /* ================================
   MEDIA QUERIES
