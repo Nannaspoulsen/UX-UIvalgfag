@@ -3,8 +3,10 @@
 @import url("https: //fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-/* Variables */
 
+/* ================================
+   Reset / Base
+================================ */
 * {
   margin: 0;
   padding: 0;
@@ -15,20 +17,56 @@ html {
   scroll-behavior: smooth;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ================================
+   Variables
+================================ */
 :root {
+  /* Farver */
   --DustyBlue: #93A3C1;
   --WarmSand: #DAA883;
   --RustyRed: #AD4B3A;
   --Beige: #EDE6DC;
 
+  /* Spacers */
   --smSpacer: 15px;
   --stdSpacer: 25px;
   --lgSpacer: 50px;
 
-  --font-size-small: 0.8rem;
+  /* Typografi-størrelser */
+  --font-size-small: 0.9rem;
   --font-size-normal: 1rem;
   --font-size-large: 1.5rem;
   --font-size-xlarge: 2.5rem;
+  --font-size-h1: 2.2rem;
+  --font-size-h2: 1.6rem;
+
+  /* Layout container (giver ens højre/venstre kant) */
+  --container: 1440px;
+  /* total bredde inkl. gutter */
+  --gutter: 20px;
+  /* venstre/højre indryk */
+
+  /* Cards (størrelser fra figjam - 3 x 448 + 2 x 8 = 1360 som passer i containerens indre bredde) */
+  --card-w: 448px;
+  --card-gap: 8px;
+}
+
+body {
+  background: var(--Beige);
+  color: #000;
+  font-family: "Inter", sans-serif;
 }
 
 h1,
@@ -38,27 +76,13 @@ h4,
 h5,
 h6 {
   font-family: "Petit Formal Script", cursive;
+  font-weight: 400;
 }
 
 
-p {
-  font-family: "Inter", serif;
-  line-height: 1.5;
-  max-width: 65ch;
-}
-
-a {
-  font-family: "Inter", serif;
-}
-
-body {
-  background-color: var(--Beige);
-}
-
-/* General styling */
-/* Header */
-/* Navbar */
-
+/* ================================
+   Header / Navbar
+================================ */
 header {
   position: relative;
 }
@@ -66,18 +90,24 @@ header {
 nav {
   display: flex;
   align-items: center;
-  padding: var(--smSpacer);
+  gap: var(--stdSpacer);
+  padding-block: var(--smSpacer);
   background: var(--Beige);
+
+  max-width: var(--container);
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
 /* Logo */
 .navbarLogo img {
-  display: block;
   height: 60px;
   width: auto;
+  display: block;
 }
 
-/* Menuliste */
+/* Menu */
 nav ul {
   list-style: none;
   display: flex;
@@ -94,34 +124,38 @@ nav li {
 }
 
 nav a {
-  text-decoration: none;
-  color: #000;
-  font-family: "Inter", sans-serif;
-  font-size: var(--font-size-normal, 1rem);
+  font-size: var(--font-size-normal);
   line-height: 1;
   padding: 9px 0;
   position: relative;
 }
 
 nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
   bottom: -4px;
   height: 1px;
-  
-  background: #000000;
+  background: #000;
+  transform: scaleX(0);
   transform-origin: left;
   transition: transform .25s ease;
 }
 
+nav a:hover::after,
+nav a:focus::after {
+  transform: scaleX(1);
+}
 
 nav a.active {
   font-weight: 600;
 }
 
-/* Søg + ikon */
+/* Søg + ikon mangler */
 .søgefelt {
-  position: relative;
   margin-left: auto;
-  padding-right: 40px;
+  padding-right: 0;
 }
 
 .søgefelt input {
@@ -131,26 +165,26 @@ nav a.active {
   border: 1px solid #000000a4;
   border-radius: 100px;
   width: 220px;
+  
 }
 
 /* Login */
-
 .login a {
   display: flex;
   flex-direction: column;
+  /* ikon over tekst */
   align-items: center;
   gap: 8px;
-  text-decoration: none;
-  color: #000;
-  font-family: "Inter", sans-serif;
   white-space: nowrap;
 }
 
 .login img {
-  display: block;
   height: 22px;
   width: 22px;
+  display: block;
 }
+
+
 
 /* Hero */
 
@@ -162,52 +196,72 @@ nav a.active {
   background: url("../img/Hero1.png") top center / cover no-repeat;
 }
 
-/* main */
-/* top recipe cards */
+/* Overskrifter */
+
+.TodaysTopRecipes,
+.TodaysTopFoodstories,
+.chefsPromo {
+  max-width: var(--container);
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+
+.TodaysTopRecipes h1,
+.TodaysTopFoodstories h1 {
+  font-size: var(--font-size-h1);
+  margin: 0 0 var(--stdSpacer);
+}
+
+
+/* ================================
+   Top Recipe Cards (3 kolonner)
+================================ */
+.TodaysTopRecipes {
+  padding-block: var(--smSpacer);
+  margin-top: var(--lgSpacer);
+}
 
 .recipeCards {
   display: grid;
-    grid-template-columns: repeat(3, 448px);
-    gap: var(--stdSpacer);
-    padding: var(--stdSpacer);
-    margin-top: var(--lgSpacer);
-  justify-content: center;
+  grid-template-columns: repeat(3, var(--card-w));
+  gap: var(--card-gap);
+  padding: 0;
+  margin: 0;
+  justify-content: start;
+ 
 }
 
 .recipeCards .card {
   position: relative;
+  width: var(--card-w);
+  height: 354px;
   border-radius: 14px;
   overflow: hidden;
   background: #000;
-  width: 448px;
-    height: 354px;
-  
 }
 
 .recipeCards .card img {
-  display: block;
-  width: 448px;
-    height: 354px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-
+/* Ensfarvet støvet blå overlay i bunden */
 .recipeCards .card::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 42%;
-  background: linear-gradient(0deg,
-      rgba(147, 163, 193, 0.935) 50%,
-      rgb(147 163 193 / 60%) 85%,
-      rgb(147 163 193 / 0%) 110%);
-  pointer-events: none;
+  height: 22%;
+  background: rgb(147 163 193 / 78%);
   z-index: 1;
-
+  pointer-events: none;
 }
 
+/* Tekst over overlay */
 .recipeCards .card h3,
 .recipeCards .card p {
   position: absolute;
@@ -218,16 +272,151 @@ nav a.active {
 }
 
 .recipeCards .card h3 {
-  bottom: 35px;
-  font-size: var(--font-size-large);
+  bottom: 30px;
+  font-size: var(--font-size-h2);
+  line-height: 1.1;
 }
 
 .recipeCards .card p {
-  bottom: 10px;
+  bottom: 15px;
   text-decoration: underline;
-  font-size: var(--font-size-small);
+  font-size: 1rem;
 }
 
+
 /* ================================
-  MEDIA QUERIES
-  ================================ */
+   Top Food Stories (3 kolonner)
+   - fast højde 239px fra Figjam
+================================ */
+.TodaysTopFoodstories {
+  padding-block: var(--stdSpacer);
+}
+
+.storyCards {
+  display: grid;
+  grid-template-columns: repeat(3, var(--card-w));
+  gap: var(--card-gap);
+  padding: 0;
+  margin: 0;
+  justify-content: start;
+}
+
+.storyCards .SingleStoryCard {
+  position: relative;
+  width: var(--card-w);
+  height: 239px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.storyCards .SingleStoryCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Øverste sandfarvede bar */
+.storyCards .SingleStoryCard::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 65px;
+  background: var(--WarmSand);
+  opacity: 0.95;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Titel ovenpå */
+.storyCards .SingleStoryCard h2 {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  right: 16px;
+  margin: 0;
+  color: #fff;
+  z-index: 2;
+  font-size: var(--font-size-h2);
+  line-height: 1.15;
+}
+
+
+/* ================================
+   Meet the Chefs (billede + overlag-knap)
+================================ */
+.chefsPromo {
+  padding-block: var(--stdSpacer);
+}
+
+.chefsPromoCard {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.chefsPromoCard img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+/* Knap som overlay nederst venstre */
+.chefsPromoBtn {
+  position: absolute;
+  left: 48px;
+  bottom: 24px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 50px;
+  padding: 20px 130px;
+
+  color: #fff;
+  background: rgb(147 163 193 / 83%);
+  border-radius: 14px;
+}
+
+.chefsPromoBtn>h2 {
+  margin: 0;
+  line-height: 1;
+  font-size: var(--font-size-xlarge);
+}
+
+.chefsPromoBtn .icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+  filter: invert(1);
+  /* gør sort ikon hvidt */
+}
+
+/* footer */
+footer {
+  margin-top: var(--lgSpacer);
+  padding: 28px var(--gutter);
+  background: var(--WarmSand);
+  color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 78px;
+  border-top: 4px solid var(--WarmSand);
+}
+
+footer p {
+  margin: 0;
+  font-size: var(--font-size-small);
+  line-height: 1;
+  transition: opacity .2s ease, text-decoration-color .2s ease;
+}
+
+footer p:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
