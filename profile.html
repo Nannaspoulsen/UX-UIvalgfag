@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+<!-- Vi har kæmpet noget med vores stjern ikoner (rating) men fandt en anden løsning på W3Schools, så her er en kilde: https://www.w3schools.com/howto/howto_css_star_rating.asp -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script src="./assets/js/app.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="navbarLogo">
+          <a href="./Index.html">
+            <img src="./assets/icons/Logo.png" alt="Logo" />
+          </a>
+        </div>
+
+        <ul>
+          <li><a class="active" href="./Index.html">Home</a></li>
+          <li><a href="/recipes">Recipes</a></li>
+          <li><a href="/chefs">Chefs</a></li>
+          <li><a href="/stories">Food stories</a></li>
+          <li><a href="/tips">Tips &amp; advice</a></li>
+          <li><a href="/world-kitchen">The world kitchen</a></li>
+        </ul>
+        <div class="søgefelt">
+          <input type="text" placeholder="Search..." />
+        </div>
+        <div class="login">
+          <a href="#"
+            ><img
+              src="./assets/icons/user-regular-full.svg"
+              alt="User-icon"
+            /><span>Hi Mads!</span></a
+          >
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="profile">
+        <div class="profile-text">
+          <h1>Mads Madsen</h1>
+
+          <p>
+            Born in Varde, but the kitchen became my real home. I love the rush,
+            the heat, and the craft behind every dish. At 25 I became head chef
+            of a Michelin restaurant in Copenhagen, worked across Europe, and
+            returned to where it all began.
+          </p>
+          <p>
+            I’m driven by curiosity and flavor. Follow for updates when I share
+            new recipes. Got questions? Send me a message.
+          </p>
+
+          <div class="profile-actions">
+            <button class="btn follow">Follow</button>
+            <button class="btn message">Send message</button>
+          </div>
+        </div>
+        <ul class="profile-stats">
+          <li><strong>113</strong> Recipes</li>
+          <li><strong>244</strong> Followers</li>
+          <li><strong>12</strong> Foodstories</li>
+        </ul>
+        <div class="profile-photo">
+          <img src="/assets/img/MadsMadsen.png" alt="Mads Madsen" />
+        </div>
+      </section>
+
+    <div class="ChefsTopRecipes">
+        <h2>Mads’ top 3 recipes</h2>
+        <div class="ChefrecipeCards">
+    
+            <div class="card">
+                <img src="./assets/img/butter_chicken_01541_16x9.jpg" alt="Easy Butter Chicken">
+                <!-- Se kilde til w3schools på linje 8 -->
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-o checked"></span>
+                    <span class="rating__meta">4.7 · 202 reviews</span>
+                </div>
+                <h3>Easy Butter Chicken</h3>
+                <p>by Mads Madsen</p>
+            </div>
+    
+            <div class="card is-selected">
+                <img src="./assets/img/chicken_65_51068_16x9.jpg" alt="Chicken 65">
+                <div class="rating">
+                    <!-- 4.9 ≈ 4 fulde + ½ (afrundet) -->
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-o checked"></span>
+                    <span class="rating__meta">4.9 · 152 reviews</span>
+                </div>
+                <h3>Chicken 65</h3>
+                <p>by Mads Madsen</p>
+            </div>
+    
+            <div class="card">
+                <img src="./assets/img/lamb_tagine_96490_16x9.jpg" alt="Lamb Tagine">
+                <div class="rating">
+                    <!-- 4.6 ≈ 4 fulde + ½ -->
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-o checked"></span>
+                    <span class="rating__meta">4.6 · 189 reviews</span>
+                </div>
+                <h3>Lamb Tagine</h3>
+                <p>by Mads Madsen</p>
+            </div>
+    
+        </div>
+    
+        <button class="btn message view-all">View all recipes</button>
+    </div>
+
+    <div class="ChefsTopTips">
+        <h2>Mads’ best tips and advice</h2>
+    
+        <div class="tipsCards">
+            <a class="tip-card" href="#">
+                <img src="./assets/img/desirae-hayes-vitor-vxtBBfMTMZ0-unsplash.jpg" alt="How to cut mango">
+                <span class="tip-title">How to cut mango</span>
+            </a>
+    
+            <a class="tip-card" href="#">
+                <img src="./assets/img/tom-hermans-2wsAcKw9_Qo-unsplash.jpg" alt="How to cut onion">
+                <span class="tip-title">How to cut onion</span>
+            </a>
+    
+            <a class="tip-card" href="#">
+                <img src="./assets/img/tijana-drndarski-2yNBQFwZCA8-unsplash.jpg" alt="How to prep garlic">
+                <span class="tip-title">How to prep garlic</span>
+            </a>
+        </div>
+    
+        <button class="btn message view-all">Read all tips</button>
+    </div>
+
+    <section class="ChefsFoodstories">
+        <h1>Mads’ food stories from around the world</h1>
+    
+        <div class="stories">
+    
+            <!-- Story 1 -->
+            <article class="story">
+                <div class="story-media">
+                    <img src="./assets/img/cody-chan-FyerbLWRr2M-unsplash.jpg" alt="Japanese ingredients on a table">
+                </div>
+                <div class="story-content">
+                    <h3>Japanese ingredients set to transform your cooking</h3>
+                    <p>
+                        When I traveled through Japan, I was struck by how simple yet powerful the food really is.
+                        From sushi and onigiri to ramen and fried chicken — it’s all about balance, comfort, and bold
+                        flavors.
+                        What surprised me most was how many of the essentials are things we already know: soy sauce, sesame
+                        oil, miso…
+                        even ketchup, Worcestershire sauce, and curry powder sneak their way into Japanese kitchens.
+                    </p>
+                    <a class="story-link" href="#">Read more about the dishes that made the biggest impression on me <span
+                            class="arrow">→</span></a>
+                </div>
+            </article>
+    
+            <!-- Story 2 (billedet til højre med .story--reverse i CSS) -->
+            <article class="story story--reverse">
+                <div class="story-media">
+                    <img src="./assets/img/p0dmxdby.jpg" alt="Fresh pasta on a board">
+                </div>
+                <div class="story-content">
+                    <h3>How to make the perfect pasta!</h3>
+                    <p>
+                        Italy has always felt like a second home to me. The way they treat pasta is more than cooking —
+                        it’s culture, tradition, and love on a plate. I spent my time there learning how simple ingredients
+                        like flour, eggs, tomatoes, and olive oil can become something extraordinary when treated with
+                        respect.
+                        From silky tagliatelle to rustic orecchiette, here are the recipes that capture the soul of Italy —
+                        simple, heartfelt, and made to be shared.
+                    </p>
+                    <a class="story-link" href="#">Read the full story and bring a piece of Italy to your own table<span
+                            class="arrow">→</span></a>
+                </div>
+            </article>
+    
+        </div>
+    </section>
+<section class="brands">
+    <h3>The chef uses products from the following brands</h3>
+    <img src="./assets/img/Kenwood.jpg" alt="Kenwood" />
+    <p>Kenwood</p>
+    <img src="./assets/img/Jamie Oliver.jpg" alt="Jamie Oliver" />
+    <p>Jamie Oliver</p>
+</section>
+<footer>
+    <p>Terms and conditions</p>
+    <p>Contact</p>
+    <p>Privacy policy</p>
+    <p>Cookies</p>
+</footer>
+    </main>
+  </body>
+</html>

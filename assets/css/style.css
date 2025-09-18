@@ -48,17 +48,14 @@ a {
   --font-size-small: 0.9rem;
   --font-size-normal: 1rem;
   --font-size-large: 1.5rem;
-  --font-size-xlarge: 2.5rem;
-  --font-size-h1: 2.2rem;
-  --font-size-h2: 1.6rem;
+  --font-size-xlarge: 50px;
+  --font-size-h1: 40px;
+  --font-size-h2: 32px;
 
   /* Layout container (giver ens højre/venstre kant) */
   --container: 1440px;
-  /* total bredde inkl. gutter */
   --gutter: 20px;
-  /* venstre/højre indryk */
 
-  /* Cards (størrelser fra figjam - 3 x 448 + 2 x 8 = 1360 som passer i containerens indre bredde) */
   --card-w: 448px;
   --card-gap: 8px;
 }
@@ -184,8 +181,8 @@ nav a.active {
   display: block;
 }
 
-
-
+/* ----------------
+LANDING PAGE ------------ */
 /* Hero */
 
 .hero {
@@ -421,7 +418,8 @@ footer p:hover {
 }
 
 
-/*RECIPE*/
+/* ----------------
+RECIPE SIDEN ------------ */
 
 /*Hero*/
 .card {
@@ -599,13 +597,438 @@ footer p:hover {
   color: #999;
 }
 
-/* Brands */
-.brands img {
-  height: 50px;
-  width: 50px;
+
+
+
+
+    /* ----------------
+  PROFIL SIDEN ------------ */
+
+.profile {
+  width: 100%;
+  max-width: var(--container);
+  margin: var(--lgSpacer) auto var(--stdSpacer);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(600px, 1fr) 240px 10px 350px;
+  column-gap: var(--lgSpacer);
+  align-items: start;
+}
+
+
+.profile-text {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 3;
+  padding-top: 10px;
+}
+
+.profile-text h1 {
+  font-size: var(--font-size-xlarge);
+  line-height: 1.1;
+  padding-bottom: var(--smSpacer);
+}
+
+.profile-text p {
+  font-size: var(--font-size-normal);
+  line-height: 1.7;
+  margin: 0 0 12px;
+  padding-top: 10px;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 25px;
+}
+
+.btn {
+  padding: 10px 9px;
+  border-radius: 14px;
+  border: 0;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, .18);
+}
+
+.btn.follow {
+  background: var(--WarmSand);
+  color: #1f1410;
+  width: 167px;
+  font-weight: 200;
+}
+
+.btn.message {
+  background: var(--RustyRed);
+  color: #fff;
+  width: 167px;
+  font-weight: 200;
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, .18);
+}
+
+.profile-stats {
+  grid-column: 2;
+  grid-row: 1;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 12px;
+}
+
+.profile-stats li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  font-size: var(--font-size-small);
+}
+
+.profile-stats strong {
+  font-weight: 600;
+  font-size: 1.30rem;
+  line-height: 1.3;
+  color: #111;
+}
+
+.profile-photo {
+  grid-column: 4;
+  grid-row: 1 / span 3;
+  justify-self: end;
+  position: relative;
+}
+
+.profile-photo img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
   border-radius: 50%;
+}
+
+
+
+/* ===== Chefs’ top recipes ===== */
+
+.ChefsTopRecipes {
+  max-width: var(--container);
+  width: 100%;
+  margin-inline: auto;
+  padding: var(--smSpacer) var(--gutter) 0;
+}
+
+.ChefsTopRecipes h2 {
+  padding-bottom: var(--smSpacer);
+}
+
+.ChefrecipeCards {
+  display: grid;
+  grid-template-columns: repeat(3, var(--card-w));
+  gap: var(--gutter);
+  justify-content: start;
+}
+
+/* === Kort === */
+.ChefrecipeCards .card {
+  position: relative;
+  width: var(--card-w);
+  height: 354px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.ChefrecipeCards .card img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
+/* Blå bund-overlag */
+.ChefrecipeCards .card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22%;
+  background: rgb(147 163 193 / 78%);
+  z-index: 1;
+}
+
+/* Tekst på overlag */
+.ChefrecipeCards .card h3,
+.ChefrecipeCards .card p {
+  position: absolute;
+  left: 18px;
+  margin: 0;
+  z-index: 2;
+  color: #fff;
+}
+
+.ChefrecipeCards .card h3 {
+  bottom: 30px;
+  font-size: var(--font-size-h2);
+  line-height: 1.5;
+  
+}
+
+.ChefrecipeCards .card p {
+  bottom: 14px;
+  font-size: 1rem;
+  text-decoration: underline;
+  font-family: "Inter", sans-serif;
+}
+
+/* Rating */
+.rating {
+  position: absolute;
+  top: 10px;
+  left: 195px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  padding: 6px 12px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+  font-size: var(--font-size-small);
+}
+
+.rating .fa-star,
+.rating .fa-star-half-o {
+  font-size: 16px;
+}
+
+.rating .checked {
+  color: #e3b322;
+}
+
+.rating__meta {
+  color: #000000;
+}
+
+/*  View all recipes knap */
+.view-all {
+  margin-top: var(--stdSpacer);
+  padding-inline: 22px;
+  border-radius: 14px;
+}
+
+/* chef tips and advice cards  */
+
+.ChefsTopTips {
+  max-width: var(--container);
+  width: 100%;
+  margin-inline: auto;
+  padding: var(--smSpacer);
+  padding-top: var(--lgSpacer);
+}
+
+.ChefsTopTips h2 {
+  padding-bottom: var(--smSpacer);
+}
+
+/* Grid: 3 kort á 448px (matcher dine tokens) */
+.tipsCards {
+  display: grid;
+  grid-template-columns: repeat(3, var(--card-w));
+  gap: var(--gutter);
+  justify-content: start;
+}
+
+/* ===== Kort ===== */
+.tip-card {
+  position: relative;
+  display: block;
+  width: var(--card-w);
+  height: 200px;
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+}
+
+.tip-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tip-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(173, 75, 58, 0.45);
+}
+
+.tip-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 88%;
+  text-align: center;
+  color: #fff;
+  font-family: "Petit Formal Script", cursive;
+  z-index: 2;
+  font-size: var(--font-size-h2);
+
+}
+
+.tip-card:hover img {
+  transform: scale(1.08);
+}
+
+.tip-card:hover::after {
+  background: rgba(173, 75, 58, 0.38);
+}
+
+.tip-card:focus-visible {
+  outline: 2px solid var(--DustyBlue);
+  outline-offset: 3px;
+  border-radius: 14px;
+}
+
+.ChefsTopTips .view-all {
+  margin-top: var(--stdSpacer);
+  padding: 12px 22px;
+  border-radius: 14px;
+  background: var(--RustyRed);
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, .18);
+}
+
+/* ===== Food stories ===== */
+.ChefsFoodstories {
+  max-width: var(--container);
+  width: 98%;
+  margin: var(--lgSpacer) auto 0;
+  padding: var(--stdSpacer);
+  background: var(--WarmSand);
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+  color: #2a2724;
+}
+
+.ChefsFoodstories h1 {
+  font-size: var(--font-size-h1);
+  padding-left: var(--lgSpacer);
+  padding-bottom: var(--smSpacer);
+}
+
+/* Liste af stories */
+.stories {
+  display: grid;
+  grid-auto-rows: auto;
+  row-gap: var(--lgSpacer);
+  padding-left: var(--lgSpacer);
+padding-right: var(--lgSpacer);
+}
+
+/* Ét item: billede + tekst */
+.story {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  /* billede | tekst */
+  grid-template-areas: "media content";
+  column-gap: var(--stdSpacer);
+  align-items: start;
+}
+
+/* Story #2 (billede til højre) */
+.story.story--reverse {
+  grid-template-columns: 1fr 360px;
+  grid-template-areas: "content media";
+}
+
+/* Medie */
+.story-media {
+  grid-area: media;
+}
+
+.story-media img {
+  width: 360px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+
+}
+
+/* Tekst */
+.story-content {
+  grid-area: content;
+}
+
+.story-content h3 {
+  font-size: var(--font-size-h2);
+  line-height: 1.5;
+}
+
+.story-content p {
+  margin: 0 0 10px;
+  font-size: var(--font-size-normal);
+  line-height: 1.6;
+  color: #2a2724;
+  
+}
+
+/* Link med pil */
+.story-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #3a2d25;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+
+/*  Brands */
+
 .brands {
-  display: block; }
+  max-width: var(--container);
+  margin: var(--lgSpacer) auto var(--stdSpacer);
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-rows: auto 140px auto;
+  grid-auto-flow: column;
+  grid-auto-columns: 140px;
+  column-gap: 40px;
+}
+
+
+.brands>p:first-child {
+  grid-column: 1 / -1;
+  margin: 0 0 var(--smSpacer);
+  font-weight: 700;
+  font-size: var(--font-size-large);
+  line-height: 1.25;
+}
+
+
+.brands img {
+  grid-row: 2;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+
+.brands img+p {
+  grid-row: 3;
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: var(--font-size-normal);
+}
+
+.brands p {
+  margin: 0;
+}
+
+
