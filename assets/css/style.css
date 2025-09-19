@@ -206,6 +206,7 @@ nav a.active {
 
 .TodaysTopRecipes {
   padding-top: var(--lgSpacer);
+  margin-left: var(--gutter);
 }
 
 .TodaysTopRecipes h1 {
@@ -1266,7 +1267,7 @@ RECIPE SIDEN ------------ */
 /*  View all recipes knap */
 .view-all {
   margin-top: var(--stdSpacer);
-  padding-inline: 22px;
+  padding-inline: 20px;
   border-radius: 14px;
 }
 
@@ -1445,7 +1446,8 @@ RECIPE SIDEN ------------ */
 /* FOODSTORY SIDEN */
 .heroImgFood {
   width: 1440px;
-  height: 500px;
+  height: 550px;
+  object-fit: cover;
 }
 
 .foodstoryContent {
@@ -1454,4 +1456,11 @@ RECIPE SIDEN ------------ */
   margin-top: 50px;
   margin-bottom: 50px;
   line-height: 150%;
+}
+
+.view-all--india {
+  background: var(--RustyRed);
+  color: #fff;
+  margin-left: var(--gutter);
+
 }
