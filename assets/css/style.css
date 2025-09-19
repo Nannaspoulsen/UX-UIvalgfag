@@ -1,6 +1,6 @@
 /* Typografi */
 
-@import url("https: //fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
@@ -48,9 +48,10 @@ a {
   --font-size-small: 0.9rem;
   --font-size-normal: 1rem;
   --font-size-large: 1.5rem;
-  --font-size-xlarge: 50px;
-  --font-size-h1: 40px;
-  --font-size-h2: 32px;
+  --font-size-xlarge: 3rem;
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.5rem;
 
   /* Layout container (giver ens højre/venstre kant) */
   --container: 1440px;
@@ -64,6 +65,11 @@ body {
   background: var(--Beige);
   color: #000;
   font-family: "Inter", sans-serif;
+}
+
+main {
+  padding-left: var(--gutter);
+    padding-right: var(--gutter);
 }
 
 h1,
@@ -149,7 +155,7 @@ nav a.active {
   font-weight: 600;
 }
 
-/* Søg + ikon mangler */
+/* Søg + ikon */
 .søgefelt {
   margin-left: auto;
   padding-right: 0;
@@ -162,7 +168,9 @@ nav a.active {
   border: 1px solid #000000a4;
   border-radius: 100px;
   width: 220px;
-  
+  background-image: url("../icons/search_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
 }
 
 /* Login */
@@ -181,8 +189,9 @@ nav a.active {
   display: block;
 }
 
-/* ----------------
-LANDING PAGE ------------ */
+/* ================================
+   Landingpage
+================================ */
 /* Hero */
 
 .hero {
@@ -193,41 +202,22 @@ LANDING PAGE ------------ */
   background: url("../img/Hero1.png") top center / cover no-repeat;
 }
 
-/* Overskrifter */
+/* Top Recipe Cards (3 kolonner) */
 
-.TodaysTopRecipes,
-.TodaysTopFoodstories,
-.chefsPromo {
-  max-width: var(--container);
-  width: 100%;
-  margin-inline: auto;
-  padding-inline: var(--gutter);
-}
-
-
-.TodaysTopRecipes h1,
-.TodaysTopFoodstories h1 {
-  font-size: var(--font-size-h1);
-  margin: 0 0 var(--stdSpacer);
-}
-
-
-/* ================================
-   Top Recipe Cards (3 kolonner)
-================================ */
 .TodaysTopRecipes {
-  padding-block: var(--smSpacer);
-  margin-top: var(--lgSpacer);
+  padding-top: var(--lgSpacer);
+}
+
+.TodaysTopRecipes h1 {
+  margin: 0 0 var(--smSpacer);
 }
 
 .recipeCards {
   display: grid;
   grid-template-columns: repeat(3, var(--card-w));
-  gap: var(--card-gap);
+  gap: var(--gutter);
   padding: 0;
   margin: 0;
-  justify-content: start;
- 
 }
 
 .recipeCards .card {
@@ -280,19 +270,36 @@ LANDING PAGE ------------ */
   font-size: 1rem;
 }
 
+.card.is-link {
+  cursor: pointer;
+}
 
-/* ================================
-   Top Food Stories (3 kolonner)
-   - fast højde 239px fra Figjam
-================================ */
+.card p a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.card p a:hover {
+  opacity: 0.8;
+
+}
+
+
+/* Top Food Stories (3 kolonner)
+   - fast højde 239px fra Figjam */
+
 .TodaysTopFoodstories {
-  padding-block: var(--stdSpacer);
+  padding-top: 70px;
+}
+
+.TodaysTopFoodstories h1 {
+  margin: 0 0 var(--smSpacer);
 }
 
 .storyCards {
   display: grid;
   grid-template-columns: repeat(3, var(--card-w));
-  gap: var(--card-gap);
+  gap: var(--gutter);
   padding: 0;
   margin: 0;
   justify-content: start;
@@ -321,7 +328,6 @@ LANDING PAGE ------------ */
   top: 0;
   height: 65px;
   background: var(--WarmSand);
-  opacity: 0.95;
   z-index: 1;
   pointer-events: none;
 }
@@ -335,16 +341,14 @@ LANDING PAGE ------------ */
   margin: 0;
   color: #fff;
   z-index: 2;
-  font-size: var(--font-size-h2);
+  font-size: var(--font-size-h3);
   line-height: 1.15;
 }
 
 
-/* ================================
-   Meet the Chefs (billede + overlag-knap)
-================================ */
+/* Meet the Chefs (billede + overlag-knap) */
 .chefsPromo {
-  padding-block: var(--stdSpacer);
+  padding-top: 90px;
 }
 
 .chefsPromoCard {
@@ -421,26 +425,23 @@ footer p:hover {
 /* ----------------
 RECIPE SIDEN ------------ */
 
-/*Hero*/
-.card {
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #000;
-  width: 1440px;
-  height: 354px;
 
+.headerCard {
+  position: relative;
+  overflow: hidden;
+  width: 1440px;
+  height: 400px;
 }
 
-.card img {
-  display: block;
-  width: 1440px;
-  height: 354px;
+.headerCard img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-
-.card::after {
+.headerCard::after {
   content: "";
   position: absolute;
   left: 0;
@@ -449,138 +450,321 @@ RECIPE SIDEN ------------ */
   height: 22%;
   background: rgb(147 163 193 / 78%);
   z-index: 1;
-  pointer-events: none;
 }
 
-.recipeCards,
-.card h3,
-.recipeCards,
-.card p {
+.headerCard h1 {
   position: absolute;
   left: 18px;
-  color: #fff;
   margin: 0;
+  color: #fff;
   z-index: 2;
+  bottom: 20px;
+  font-size: 40px;
+  line-height: 1.1;
 }
 
-.recipeCards,
-.card h3 {
-  bottom: 30px;
-  font-size: var(--font-size-large);
-}
+/*Profile card*/
 
-.recipeCards,
-.card p {
-  bottom: 15px;
-  text-decoration: underline;
-  font-size: var(--font-size-small);
-}
-
-/*Profil card*/
 .profileCard {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  max-width: 350px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 560px;
+  max-width: 560px;
+  margin: var(--gutter);
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+  border: 1px solid rgba(0, 0, 0, .06);
+}
+
+.profileCard .profilePic {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  filter: grayscale(100%);
+}
+
+.profileCard .cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 auto;
+}
+
+.profileCard .name {
+  font-family: "Petit Formal Script", cursive;
+  font-size: 26px;
+  line-height: 1.1;
+  color: #2a2724;
+  margin: 0;
+}
+
+.profileCard .description {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #3b3b3b;
+  margin: 0;
+  max-width: 44ch;
+}
+
+.profileCard .buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+}
+
+.profileCard .btn {
+  display: inline-flex;
+  width: auto !important;
+  flex: 0 0 auto;
+  margin: 0 !important;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, .18);
+  transition: transform .05s ease, box-shadow .05s ease, opacity .15s ease;
+}
+
+.profileCard .btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .18);
+}
+
+.profileCard .btn.profile {
+  background: var(--WarmSand);
+  color: #1f1410;
+}
+
+.profileCard .btn.follow {
+  background: var(--RustyRed);
+  color: #fff;
+}
+
+.profileCard .btn:hover {
+  opacity: .9;
+}
+
+.profileCard .btn:focus-visible {
+  outline: 2px solid var(--DustyBlue);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+/* Icon indikator */
+
+.IconIndikator {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 120px 120px 120px;
+  grid-template-rows: auto auto;
+  justify-content: end;
+  align-items: start;
+  column-gap: 44px;
+  padding-right: var(--gutter);
+  margin-top: -240px;
+  margin-bottom: 200px;
+}
+
+/* Fælles ikon-stil */
+.IconIndikator img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  justify-self: center;
+}
+
+/* Fælles label-stil */
+.IconIndikator p {
+  margin: 8px 0 0;
+  color: #000000;
   text-align: center;
 }
 
-.profilePic {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
-  display: flex;
+/* 1) Tid */
+.IconIndikator img:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 1;
 }
 
-.name {
-  font-family: 'Petit Formal Script', cursive;
-  font-size: 28px;
-  margin: 0 0 10px;
+.IconIndikator p:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 2;
 }
 
-.description {
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 20px;
+/* 2) Portioner */
+.IconIndikator img:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 1;
 }
 
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+.IconIndikator p:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 2;
 }
 
-.btn {
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+/* 3) Sværhedsgrad – to ikoner i samme celle, forskudt fra midten */
+.IconIndikator img:nth-of-type(3),
+.IconIndikator img:nth-of-type(4) {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: center;
+  /* start i midten */
 }
 
-.btn.profile {
-  background-color: #e4b58e;
-  color: #000;
+.IconIndikator img:nth-of-type(3) {
+  transform: translateX(-22px);
 }
 
-.btn.follow {
-  background-color: #b55a46;
-  color: white;
+.IconIndikator img:nth-of-type(4) {
+  transform: translateX(22px);
 }
 
-/*Save & like*/
+.IconIndikator p:nth-of-type(3) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/* Recipe intro */
+
+.recipeIntro {
+  max-width: 720px;
+
+  padding: 0 var(--gutter);
+  font-size: 18px;
+  line-height: 1.6;
+  color: #000000;
+  margin-bottom: var(--lgSpacer);
+}
+
+/* Save & like */
+
+
+.saveLike {
+  display: grid;
+  grid-template-columns: 64px 64px;
+  grid-template-rows: auto auto;
+  column-gap: 24px;
+  row-gap: 6px;
+  align-items: start;
+  justify-content: start;
+  user-select: none;
+}
+
 .saveLike img {
-  height: 50px;
   width: 50px;
+  height: 50px;
+  object-fit: contain;
+  justify-self: center;
+  cursor: pointer;
 }
+
+.saveLike p {
+  margin: 0;
+  font: 600 14px/1.2 "Inter", sans-serif;
+  text-align: center;
+  cursor: pointer;
+}
+
+.saveLike img:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+
+.saveLike p:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+
+.saveLike img:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+
+.saveLike p:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
 
 /*Ingredienser og metode*/
-.ingredient,
-.method {
-  display: flex;
-  align-items: center;
-  margin: 8px 0;
-  font-size: 18px;
-}
 
 
 .containerIngredientsMethods {
+  display: grid;
+  grid-template-columns: 520px 520px;
+  column-gap: 60px;
+  row-gap: 0;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+.ingredients,
+.methods {
+  display: block;
+}
+
+/* Første p fungerer som sektionstitel */
+.ingredients>p:first-of-type,
+.methods>p:first-of-type {
+  font-family: "Petit Formal Script", cursive;
+  font-size: var(--font-size-h2);
+  margin: 0 0 10px;
+  color: #000000;
+}
+
+/* Underoverskrifter i listerne (fx “For the marinade”) */
+.ingredients>p:not(:first-of-type),
+.methods>p:not(:first-of-type) {
+  margin: 18px 0 6px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #413a36;
+}
+
+
+.ingredient,
+.method {
   display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  max-width: 1000px;
-  margin: auto;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 8px 0;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
-.methods,
-.ingredients {
-  flex: 1;
-}
 
+/* Afkrydsnings-cirkel */
 .circle {
   width: 22px;
   height: 22px;
   border: 2px solid #aaa;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 10px;
-  cursor: pointer;
-  transition: all 0.2s;
   flex-shrink: 0;
   line-height: 0;
+  cursor: pointer;
+  transition: all .2s;
 }
 
 .circle.checked {
   background-color: #2ecc71;
   border-color: #2ecc71;
-  color: white;
+  color: #fff;
   font-weight: bold;
 }
 
@@ -589,8 +773,9 @@ RECIPE SIDEN ------------ */
   font-size: 14px;
 }
 
+/* Tekst */
 .text {
-  transition: color 0.2s;
+  transition: color .2s;
 }
 
 .text.checked {
@@ -598,10 +783,280 @@ RECIPE SIDEN ------------ */
 }
 
 
+/* Brands */
+
+.brands {
+  width: 100%;
+  max-width: none;
+  margin: var(--lgSpacer) 0 var(--stdSpacer);
+  padding-left: var(--gutter);
+  padding-right: 0;
+
+  display: grid;
+  grid-template-rows: auto 140px auto;
+  grid-auto-flow: column;
+  grid-auto-columns: 140px;
+  column-gap: 40px;
+  justify-content: start;
+  align-items: start;
+}
+
+
+.brands>p:first-child {
+  grid-column: 1 / span 100;
+  margin: 0 0 var(--smSpacer);
+  font-weight: 700;
+  font-size: var(--font-size-large);
+  line-height: 1.25;
+}
+
+/* Logo + label */
+.brands img {
+  grid-row: 2;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.brands img+p {
+  grid-row: 3;
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: var(--font-size-normal);
+}
+
+.brands p {
+  margin: 0;
+}
+
+/* ===== Foodstory highlight ===== */
+
+.FoodstoryHighlight {
+  max-width: var(--container);
+  padding-top: var(--lgSpacer);
+  width: 1380px;
+  margin: var(--gutter);
+  border-radius: 14px;
+  overflow: hidden;
+
+}
+
+/* Top med titel */
+.FoodstoryHighlight .fsHeader {
+  background: var(--WarmSand);
+  padding: 18px var(--gutter);
+  border-radius: 14px 14px 0 0;
+}
+
+.FoodstoryHighlight .fsHeader h2 {
+  margin: 0;
+  font-size: var(--font-size-h2);
+  line-height: 1.2;
+  color: #fff;
+}
+
+/* Billede + overlay */
+.FoodstoryHighlight .fsMedia {
+  position: relative;
+}
+
+.FoodstoryHighlight .fsMedia img {
+  display: block;
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+
+/* Blå tekstboks */
+.FoodstoryHighlight .fsOverlay {
+  position: absolute;
+  left: 26px;
+  top: 26px;
+  width: 320px;
+  padding: 16px;
+  background: rgba(147, 163, 193, 0.775);
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .15);
+}
+
+.FoodstoryHighlight .fsOverlay p {
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+/* Knap */
+.FoodstoryHighlight .fsButton {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: var(--WarmSand);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, .18);
+}
+
+/* Comments / Reviews */
+
+.kommentarer {
+  max-width: var(--container);
+  width: 100%;
+  margin: var(--lgSpacer) auto;
+  padding: 0 var(--gutter);
+}
+
+
+.kommentarer .overskrift {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.kommentarer .ikon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.kommentarer .overskrift h2 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.kommentarer .overskrift::after {
+  content: "";
+  height: 2px;
+  background: rgba(0, 0, 0, .25);
+  flex: 1;
+  margin-left: 12px;
+}
+
+
+.anmeldelser {
+  display: grid;
+  grid-template-columns: 480px 480px;
+  gap: 24px;
+}
+
+/* Review-kort */
+.kort {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .35);
+  border-radius: 8px;
+  padding: 14px 16px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .06);
+}
+
+.forfatter {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.forfatter .navn {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.forfatter .rolle {
+  color: #444;
+}
+
+/* Stjerner – se W3Schools kilde i html */
+.stjerner {
+  margin: 2px 0 8px;
+}
+
+.stjerner .fa {
+  font-size: 18px;
+  margin-right: 2px;
+}
+
+.stjerner .valgt {
+  color: #e3b322;
+}
+
+
+/* Tekster */
+.titel {
+  font-family: "Petit Formal Script", cursive;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 6px;
+  color: #333;
+}
+
+.tekst {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0 0 12px;
+}
+
+.dato {
+  font-size: 12px;
+  color: #555;
+  margin: 0;
+}
+
+/* Knapper */
+
+/* Knap-område */
+.handlinger {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+/* Fælles stil for begge links */
+.handlinger .knap,
+.handlinger .ikonKnap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--DustyBlue);
+  color: #fff;
+  text-decoration: none;
+  border: 0;
+  font-weight: 600;
+  cursor: pointer;
+  width: auto !important;
+  flex: 0 0 auto;
+  margin: 0 !important;
+}
+
+
+.handlinger .ikonKnap .ikon-knap {
+  width: 16px;
+  height: 16px;
+  display: block;
+  filter: brightness(0) invert(1);
+  
+}
+
+
+.AlsoInterested {
+  max-width: var(--container);
+  width: 100%;
+  margin-inline: auto;
+  padding: var(--smSpacer) var(--gutter) 0;
+}
+
+.AlsoInterested h2 {
+  margin: 0 0 var(--smSpacer);
+  font-weight: 700;
+  font-size: var(--font-size-large);
+}
 
 
 
-    /* ----------------
+/* ----------------
   PROFIL SIDEN ------------ */
 
 .profile {
@@ -615,7 +1070,6 @@ RECIPE SIDEN ------------ */
   column-gap: var(--lgSpacer);
   align-items: start;
 }
-
 
 .profile-text {
   grid-column: 1 / span 2;
@@ -710,7 +1164,7 @@ RECIPE SIDEN ------------ */
 
 
 
-/* ===== Chefs’ top recipes ===== */
+/* Chefs’ top recipes */
 
 .ChefsTopRecipes {
   max-width: var(--container);
@@ -771,7 +1225,7 @@ RECIPE SIDEN ------------ */
   bottom: 30px;
   font-size: var(--font-size-h2);
   line-height: 1.5;
-  
+
 }
 
 .ChefrecipeCards .card p {
@@ -926,7 +1380,7 @@ RECIPE SIDEN ------------ */
   grid-auto-rows: auto;
   row-gap: var(--lgSpacer);
   padding-left: var(--lgSpacer);
-padding-right: var(--lgSpacer);
+  padding-right: var(--lgSpacer);
 }
 
 /* Ét item: billede + tekst */
@@ -973,7 +1427,7 @@ padding-right: var(--lgSpacer);
   font-size: var(--font-size-normal);
   line-height: 1.6;
   color: #2a2724;
-  
+
 }
 
 /* Link med pil */
@@ -987,48 +1441,17 @@ padding-right: var(--lgSpacer);
 }
 
 
-/*  Brands */
 
-.brands {
-  max-width: var(--container);
-  margin: var(--lgSpacer) auto var(--stdSpacer);
-  padding: 0 var(--gutter);
-  display: grid;
-  grid-template-rows: auto 140px auto;
-  grid-auto-flow: column;
-  grid-auto-columns: 140px;
-  column-gap: 40px;
+/* FOODSTORY SIDEN */
+.heroImgFood {
+  width: 1440px;
+  height: 500px;
 }
 
-
-.brands>p:first-child {
-  grid-column: 1 / -1;
-  margin: 0 0 var(--smSpacer);
-  font-weight: 700;
-  font-size: var(--font-size-large);
-  line-height: 1.25;
+.foodstoryContent {
+  margin-left: 380px;
+  margin-right: 380px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  line-height: 150%;
 }
-
-
-.brands img {
-  grid-row: 2;
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-}
-
-
-.brands img+p {
-  grid-row: 3;
-  margin: 8px 0 0;
-  text-align: center;
-  font-size: var(--font-size-normal);
-}
-
-.brands p {
-  margin: 0;
-}
-
-

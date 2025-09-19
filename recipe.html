@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
     <link rel="stylesheet" href="./assets/CSS/style.css" />
     <script src="./assets/JS/app.js" defer></script>
   </head>
@@ -35,10 +36,9 @@
 
   <body>
     <header>
-      <div class="card">
+      <div class="headerCard">
         <img src="./assets/img/butter_chicken_01541_16x9.jpg" alt="Food1" />
-        <h3>Easy Butter Chicken</h3>
-        <p>by Mads Madsen</p>
+        <h1>Easy Butter Chicken</h1>
       </div>
     </header>
 
@@ -56,35 +56,30 @@
           stories from a Michelin chef’s kitchen.
         </p>
         <div class="buttons">
-          <button class="btn profile">See profile</button>
+          <button class="btn profile" type="button" onclick="location.href='./profile.html'">See profile</button>
           <button class="btn follow">Follow chef</button>
         </div>
       </div>
     </section>
 
     <section class="IconIndikator">
-      <img
-        src="./assets/icons/timer_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
-        alt="Ur"
-      />
+      <img src="./assets/icons/timer_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="Ur" />
       <p>45 min</p>
-      <img
-        src="./assets/icons/dining_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
-        alt="Portioner"
-      />
-      <p>4 Portioner</p>
-      <img
-        src="./assets/icons/skillet_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
-        alt="Sværhedsgrad"
-      />
-      <p>Let øvet</p>
+    
+      <img src="./assets/icons/dining_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="Portioner" />
+      <p>2 Portioner</p>
+    
+      <img src="./assets/icons/skillet_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="Sværhedsgrad" />
+      <img src="./assets/icons/skillet_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="Sværhedsgrad" />
+      <p>Øvet</p>
     </section>
 
-    <p>
-      Romy Gill's easy butter chicken recipe is nut-free, perfect for two and
+
+    <div class="recipeIntro"><p>
+      Mads Madsen's easy butter chicken recipe is nut-free, perfect for two and
       quick to make. It's topped with fragrant cardamom and fenugreek. Serve
       with steamed rice or naan bread.
-    </p>
+    </p></div>
 
     <section class="saveLike">
       <img src="./assets/icons/heart-regular-full.svg" alt="Like" />
@@ -218,7 +213,7 @@
       </section>
 
       <section class="methods">
-        <p>Methods</p>
+        <p>Method</p>
         <div class="method">
           <div class="circle"></div>
           <div class="text">Preheat the oven to 220C/200C Fan/Gas 7.</div>
@@ -281,14 +276,148 @@
           </div>
         </div>
       </section>
-
+    </div>
       <section class="brands">
-        <p>The chef uses products from the following brands</p>
+        <p>Mads works and collaborates with the following brands:</p>
         <img src="./assets/img/Kenwood.jpg" alt="Kenwood" />
         <p>Kenwood</p>
         <img src="./assets/img/Jamie Oliver.jpg" alt="Jamie Oliver" />
         <p>Jamie Oliver</p>
       </section>
+<section class="FoodstoryHighlight">
+  <div class="fsHeader">
+    <h2>Foodstory from India</h2>
+  </div>
+
+  <div class="fsMedia">
+    <img src="./assets/img/sylwia-bartyzel-eU4pipU_8HA-unsplash.jpg" alt="Taj Mahal, India" />
+    <div class="fsOverlay">
+      <p>
+        After weeks on Indian trains and in smoky tandoor kitchens, Mads came home with spice-stained notes and simple, soulful recipes. This foodstory is his map to Indian comfort cooking.
+      </p>
+      <a class="fsButton" href="./foodstory.html">Read the full story</a>
     </div>
+  </div>
+</section>
+
+<section class="kommentarer">
+  <div class="overskrift">
+    <img src="./assets/icons/comments-regular-full.svg" alt="" class="ikon">
+    <h2>16 comments</h2>
+  </div>
+
+  <div class="anmeldelser">
+    <article class="kort">
+      <div class="forfatter">
+        <a href="./profile.html" class="navn">Anna Adams</a>
+        <span class="rolle"> · Home Cook</span>
+      </div>
+
+      <div class="stjerner">
+        <span class="fa fa-star valgt"></span>
+        <span class="fa fa-star valgt"></span>
+        <span class="fa fa-star valgt"></span>
+        <span class="fa fa-star valgt"></span>
+        <span class="fa fa-star"></span>
+      </div>
+
+      <h3 class="titel">“So easy and tasty!”</h3>
+      <p class="tekst">
+        This recipe was simple to follow, and my family loved it. Will definitely make it again.
+      </p>
+      <p class="dato">Reviewed on Sep 12, 2025</p>
+    </article>
+
+    <article class="kort">
+      <div class="forfatter">
+        <a href="./profile.html" class="navn">Bryan Bolter</a>
+        <span class="rolle"> · Professional Chef</span>
+      </div>
+
+      <div class="stjerner">
+        <span class="fa fa-star valgt"></span>
+        <span class="fa fa-star valgt"></span>
+        <span class="fa fa-star valgt"></span>
+        <span class="fa fa-star valgt"></span>
+        <span class="fa fa-star"></span>
+    
+      </div>
+
+      <h3 class="titel">“Refined and balanced”</h3>
+      <p class="tekst">
+        A clever take on a classic. The flavors are well balanced, but I’d recommend a touch more acidity to brighten
+        the dish.
+      </p>
+      <p class="dato">Reviewed on Sep 10, 2025</p>
+    </article>
+  </div>
+
+<div class="handlinger">
+  <a class="knap primaer" href="./all-reviews.html">Read all reviews</a>
+
+  <a class="ikonKnap" href="./write-review.html">
+    <img src="./assets/icons/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="" class="ikon-knap">
+    Write a review
+  </a>
+</div>
+
+</section>
+
+<section class="AlsoInterested">
+  <h2>You may also be interested in</h2>
+
+  <div class="ChefrecipeCards">
+    <div class="card is-link" onclick="location.href='./recipe-chicken65.html'">
+      <img src="./assets/img/chicken_65_51068_16x9.jpg" alt="Chicken 65">
+      <div class="rating">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="rating__meta">4.6 · 36 reviews</span>
+      </div>
+      <h3>Chicken 65</h3>
+      <p>by Mads Madsen</p>
+    </div>
+
+    <div class="card is-link" onclick="location.href='./recipe-bhuna.html'">
+      <img src="./assets/img/bhuna_murgh_masala_90385_16x9.jpg" alt="Chicken bhuna">
+      <div class="rating">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="rating__meta">4.3 · 76 reviews</span>
+      </div>
+      <h3>Chicken bhuna</h3>
+      <p>by Mads Madsen</p>
+    </div>
+
+    <div class="card is-link" onclick="location.href='./recipe-jalfrezi.html'">
+      <img src="./assets/img/chickenjalfrezi_91772_16x9.jpg" alt="Chicken jalfrezi">
+      <div class="rating">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="rating__meta">4.0 · 85 reviews</span>
+      </div>
+      <h3>Chicken jalfrezi</h3>
+      <p>by Mads Madsen</p>
+    </div>
+  </div>
+</section>
+
+
+
+    <footer>
+      <p>Terms and conditions</p>
+      <p>Contact</p>
+      <p>Privacy policy</p>
+      <p>Cookies</p>
+    </footer>
   </body>
 </html>
