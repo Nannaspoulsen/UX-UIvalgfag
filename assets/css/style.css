@@ -846,7 +846,6 @@ footer p:hover {
   font-size: var(--font-size-normal);
 }
 
-/* generel nulmargin for p i blokken */
 .brands p {
   margin: 0;
 }
