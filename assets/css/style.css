@@ -797,40 +797,29 @@ footer p:hover {
 
 
 /* Brands bobler */
-/* Brands – overskrift i venstre kolonne, logoer/labels i kolonner til højre */
+
 .brands {
   width: 100%;
   margin: var(--lgSpacer) 0 var(--stdSpacer);
   padding-inline: var(--gutter);
-
   display: grid;
-  /* venstre kolonne til overskrift, resten auto-kolonner til bobler */
-  grid-template-columns: minmax(320px, 1fr);
-  grid-template-rows: 160px auto;
-  /* række 1: logoer, række 2: labels */
-  grid-auto-flow: column;
-  /* fyld kolonner til højre for overskrift */
+  grid-template-rows: auto 160px auto; grid-auto-flow: column;
   grid-auto-columns: 160px;
-  /* bredde pr. brand */
   column-gap: 40px;
-  align-items: center;
-  /* centrer logo-rækken vertikalt mod h3 */
+  row-gap: 8px;
+  justify-content: start;
+  align-items: start;
 }
 
-/* H3 bliver venstre “sidebar”, spænder begge rækker */
 .brands>h3 {
-  grid-column: 1;
-  grid-row: 1 / span 2;
-  /* over begge rækker */
-  margin: 0;
-  max-width: 22ch;
-  /* så den ikke flyder for langt ud */
-  line-height: 1.1;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  margin: 0 0 var(--smSpacer);
+  line-height: 1.15;
 }
 
-/* Logo-bobler (række 1) */
 .brands img {
-  grid-row: 1;
+  grid-row: 2;
   width: 160px;
   height: 160px;
   object-fit: cover;
@@ -838,10 +827,10 @@ footer p:hover {
   display: block;
 }
 
-/* Label under hvert logo (række 2, samme kolonne som billedet) */
+
 .brands img+p {
-  grid-row: 2;
-  margin: 8px 0 0;
+  grid-row: 3;
+  margin: 6px 0 0;
   text-align: center;
   font-size: var(--font-size-normal);
 }
@@ -849,6 +838,7 @@ footer p:hover {
 .brands p {
   margin: 0;
 }
+
 /* Foodstory highlight */
 .FoodstoryHighlight {
   max-width: var(--container);
