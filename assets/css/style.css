@@ -1,11 +1,12 @@
-/* Typografi */
-
+/* ---------------------------------
+   Typografi (importer fonde)
+---------------------------------- */
 @import url("https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
 /* ================================
-   Reset / Base
+   Fundament
 ================================ */
 * {
   margin: 0;
@@ -28,10 +29,33 @@ a {
   text-decoration: none;
 }
 
+body {
+  background: var(--Beige);
+  color: #000;
+  font-family: "Inter", sans-serif;
+  margin: 30px;
+}
+
+main {
+  /* samme padding venstre/højre */
+  padding-inline: var(--gutter);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Petit Formal Script", cursive;
+  font-weight: 400;
+}
+
 
 /* ================================
-   Variables
+   Variabler
 ================================ */
+
 :root {
   /* Farver */
   --DustyBlue: #93A3C1;
@@ -53,33 +77,13 @@ a {
   --font-size-h2: 2rem;
   --font-size-h3: 1.5rem;
 
-  /* Layout container (giver ens højre/venstre kant) */
+  /* Layout */
   --container: 1440px;
   --gutter: 20px;
 
-  --card-w: 448px;
+  /* Cards */
+  --card-w: 428px;
   --card-gap: 8px;
-}
-
-body {
-  background: var(--Beige);
-  color: #000;
-  font-family: "Inter", sans-serif;
-}
-
-main {
-  padding-left: var(--gutter);
-    padding-right: var(--gutter);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Petit Formal Script", cursive;
-  font-weight: 400;
 }
 
 
@@ -96,7 +100,6 @@ nav {
   gap: var(--stdSpacer);
   padding-block: var(--smSpacer);
   background: var(--Beige);
-
   max-width: var(--container);
   width: 100%;
   margin-inline: auto;
@@ -133,6 +136,7 @@ nav a {
   position: relative;
 }
 
+/* under-streg på hover */
 nav a::after {
   content: "";
   position: absolute;
@@ -173,11 +177,10 @@ nav a.active {
   background-position: right 10px center;
 }
 
-/* Login */
+/* Login (ikon over tekst) */
 .login a {
   display: flex;
   flex-direction: column;
-  /* ikon over tekst */
   align-items: center;
   gap: 8px;
   white-space: nowrap;
@@ -189,11 +192,12 @@ nav a.active {
   display: block;
 }
 
+
 /* ================================
    Landingpage
 ================================ */
-/* Hero */
 
+/* Hero – fuld bredde fra kant til kant */
 .hero {
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -203,10 +207,8 @@ nav a.active {
 }
 
 /* Top Recipe Cards (3 kolonner) */
-
 .TodaysTopRecipes {
   padding-top: var(--lgSpacer);
-  margin-left: var(--gutter);
 }
 
 .TodaysTopRecipes h1 {
@@ -282,13 +284,10 @@ nav a.active {
 
 .card p a:hover {
   opacity: 0.8;
-
 }
 
 
-/* Top Food Stories (3 kolonner)
-   - fast højde 239px fra Figjam */
-
+/* Top Food Stories (3 kolonner, fast højde) */
 .TodaysTopFoodstories {
   padding-top: 70px;
 }
@@ -369,12 +368,10 @@ nav a.active {
   position: absolute;
   left: 48px;
   bottom: 24px;
-
   display: inline-flex;
   align-items: center;
   gap: 50px;
   padding: 20px 130px;
-
   color: #fff;
   background: rgb(147 163 193 / 83%);
   border-radius: 14px;
@@ -394,13 +391,15 @@ nav a.active {
   /* gør sort ikon hvidt */
 }
 
-/* footer */
+
+/* Footer */
 footer {
+  inline-size: 100vw;
+  margin-inline: calc(50% - 50vw);
   margin-top: var(--lgSpacer);
   padding: 28px var(--gutter);
   background: var(--WarmSand);
   color: #fff;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -424,17 +423,18 @@ footer p:hover {
 
 
 /* ----------------
-RECIPE SIDEN ------------ */
-
+   RECIPE SIDEN
+------------------ */
 
 .headerCard {
   position: relative;
-  overflow: hidden;
-  width: 1440px;
+  inline-size: 100vw;
+  margin-inline: calc(50% - 50vw);
   height: 400px;
+  overflow: hidden;
 }
 
-.headerCard img {
+.headerCard>img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -442,6 +442,7 @@ RECIPE SIDEN ------------ */
   object-fit: cover;
 }
 
+/* Blå bund-overlay */
 .headerCard::after {
   content: "";
   position: absolute;
@@ -453,26 +454,35 @@ RECIPE SIDEN ------------ */
   z-index: 1;
 }
 
-.headerCard h1 {
-  position: absolute;
-  left: 18px;
-  margin: 0;
-  color: #fff;
+.headerCard .headerCardTitel {
+  position: relative;
   z-index: 2;
-  bottom: 20px;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--lgSpacer);
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.headerCard .headerCardTitel h1 {
+  margin: 0 0 20px 0;
+  color: #fff;
   font-size: 40px;
   line-height: 1.1;
 }
 
-/*Profile card*/
-
-.profileCard {
+/* ---------------------------------
+   Profile Card. Samme stil til både recipe og foodstory
+---------------------------------- */
+.profileCard,
+.profileCardFoodstory {
   display: flex;
   align-items: center;
   gap: 16px;
   width: 560px;
   max-width: 560px;
-  margin: var(--gutter);
+  margin-top: var(--gutter);
   background: #fff;
   border-radius: 14px;
   padding: 16px 18px;
@@ -480,7 +490,8 @@ RECIPE SIDEN ------------ */
   border: 1px solid rgba(0, 0, 0, .06);
 }
 
-.profileCard .profilePic {
+.profileCard .profilePic,
+.profileCardFoodstory .profilePic {
   width: 86px;
   height: 86px;
   border-radius: 50%;
@@ -489,14 +500,16 @@ RECIPE SIDEN ------------ */
   filter: grayscale(100%);
 }
 
-.profileCard .cardContent {
+.profileCard .cardContent,
+.profileCardFoodstory .cardContent {
   display: flex;
   flex-direction: column;
   gap: 8px;
   flex: 1 1 auto;
 }
 
-.profileCard .name {
+.profileCard .name,
+.profileCardFoodstory .name {
   font-family: "Petit Formal Script", cursive;
   font-size: 26px;
   line-height: 1.1;
@@ -504,7 +517,8 @@ RECIPE SIDEN ------------ */
   margin: 0;
 }
 
-.profileCard .description {
+.profileCard .description,
+.profileCardFoodstory .description {
   font-family: "Inter", sans-serif;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -513,7 +527,8 @@ RECIPE SIDEN ------------ */
   max-width: 44ch;
 }
 
-.profileCard .buttons {
+.profileCard .buttons,
+.profileCardFoodstory .buttons {
   display: flex;
   gap: 10px;
   margin-top: 6px;
@@ -522,7 +537,9 @@ RECIPE SIDEN ------------ */
   width: auto;
 }
 
-.profileCard .btn {
+/* knapper i profilkort */
+.profileCard .btn,
+.profileCardFoodstory .btn {
   display: inline-flex;
   width: auto !important;
   flex: 0 0 auto;
@@ -537,32 +554,38 @@ RECIPE SIDEN ------------ */
   transition: transform .05s ease, box-shadow .05s ease, opacity .15s ease;
 }
 
-.profileCard .btn:active {
+.profileCard .btn:active,
+.profileCardFoodstory .btn:active {
   transform: translateY(1px);
   box-shadow: 0 2px 0 rgba(0, 0, 0, .18);
 }
 
-.profileCard .btn.profile {
+.profileCard .btn.profile,
+.profileCardFoodstory .btn.profile {
   background: var(--WarmSand);
   color: #1f1410;
 }
 
-.profileCard .btn.follow {
+.profileCard .btn.follow,
+.profileCardFoodstory .btn.follow {
   background: var(--RustyRed);
   color: #fff;
 }
 
-.profileCard .btn:hover {
+.profileCard .btn:hover,
+.profileCardFoodstory .btn:hover {
   opacity: .9;
 }
 
-.profileCard .btn:focus-visible {
+.profileCard .btn:focus-visible,
+.profileCardFoodstory .btn:focus-visible {
   outline: 2px solid var(--DustyBlue);
   outline-offset: 2px;
   border-radius: 10px;
 }
-/* Icon indikator */
 
+
+/* Icon indikator (tid/portioner/sværhedsgrad) */
 .IconIndikator {
   width: 100%;
   display: grid;
@@ -572,11 +595,11 @@ RECIPE SIDEN ------------ */
   align-items: start;
   column-gap: 44px;
   padding-right: var(--gutter);
-  margin-top: -240px;
+  margin-top: -210px;
   margin-bottom: 200px;
 }
 
-/* Fælles ikon-stil */
+/* fælles ikon/label */
 .IconIndikator img {
   width: 36px;
   height: 36px;
@@ -584,7 +607,6 @@ RECIPE SIDEN ------------ */
   justify-self: center;
 }
 
-/* Fælles label-stil */
 .IconIndikator p {
   margin: 8px 0 0;
   color: #000000;
@@ -613,13 +635,12 @@ RECIPE SIDEN ------------ */
   grid-row: 2;
 }
 
-/* 3) Sværhedsgrad – to ikoner i samme celle, forskudt fra midten */
+/* 3) Sværhedsgrad – to ikoner i samme celle */
 .IconIndikator img:nth-of-type(3),
 .IconIndikator img:nth-of-type(4) {
   grid-column: 3;
   grid-row: 1;
   justify-self: center;
-  /* start i midten */
 }
 
 .IconIndikator img:nth-of-type(3) {
@@ -635,11 +656,10 @@ RECIPE SIDEN ------------ */
   grid-row: 2;
 }
 
-/* Recipe intro */
 
+/* Recipe intro */
 .recipeIntro {
   max-width: 720px;
-
   padding: 0 var(--gutter);
   font-size: 18px;
   line-height: 1.6;
@@ -647,9 +667,8 @@ RECIPE SIDEN ------------ */
   margin-bottom: var(--lgSpacer);
 }
 
-/* Save & like */
 
-
+/* Save & like ikoner */
 .saveLike {
   display: grid;
   grid-template-columns: 64px 64px;
@@ -681,18 +700,15 @@ RECIPE SIDEN ------------ */
   grid-row: 1;
 }
 
-
 .saveLike p:nth-of-type(1) {
   grid-column: 1;
   grid-row: 2;
 }
 
-
 .saveLike img:nth-of-type(2) {
   grid-column: 2;
   grid-row: 1;
 }
-
 
 .saveLike p:nth-of-type(2) {
   grid-column: 2;
@@ -700,9 +716,7 @@ RECIPE SIDEN ------------ */
 }
 
 
-/*Ingredienser og metode*/
-
-
+/* Ingredienser og metode */
 .containerIngredientsMethods {
   display: grid;
   grid-template-columns: 520px 520px;
@@ -717,7 +731,7 @@ RECIPE SIDEN ------------ */
   display: block;
 }
 
-/* Første p fungerer som sektionstitel */
+/* Første p = sektionstitel */
 .ingredients>p:first-of-type,
 .methods>p:first-of-type {
   font-family: "Petit Formal Script", cursive;
@@ -726,7 +740,7 @@ RECIPE SIDEN ------------ */
   color: #000000;
 }
 
-/* Underoverskrifter i listerne (fx “For the marinade”) */
+/* Underoverskrifter */
 .ingredients>p:not(:first-of-type),
 .methods>p:not(:first-of-type) {
   margin: 18px 0 6px;
@@ -734,7 +748,6 @@ RECIPE SIDEN ------------ */
   font-size: 1rem;
   color: #413a36;
 }
-
 
 .ingredient,
 .method {
@@ -745,7 +758,6 @@ RECIPE SIDEN ------------ */
   font-size: 18px;
   line-height: 1.5;
 }
-
 
 /* Afkrydsnings-cirkel */
 .circle {
@@ -774,7 +786,7 @@ RECIPE SIDEN ------------ */
   font-size: 14px;
 }
 
-/* Tekst */
+/* Tekst ved check */
 .text {
   transition: color .2s;
 }
@@ -784,67 +796,70 @@ RECIPE SIDEN ------------ */
 }
 
 
-/* Brands */
-
+/* Brands bobler */
+/* Brands – overskrift i venstre kolonne, logoer/labels i kolonner til højre */
 .brands {
   width: 100%;
-  max-width: none;
   margin: var(--lgSpacer) 0 var(--stdSpacer);
-  padding-left: var(--gutter);
-  padding-right: 0;
+  padding-inline: var(--gutter);
 
   display: grid;
-  grid-template-rows: auto 140px auto;
+  /* venstre kolonne til overskrift, resten auto-kolonner til bobler */
+  grid-template-columns: minmax(320px, 1fr);
+  grid-template-rows: 160px auto;
+  /* række 1: logoer, række 2: labels */
   grid-auto-flow: column;
-  grid-auto-columns: 140px;
+  /* fyld kolonner til højre for overskrift */
+  grid-auto-columns: 160px;
+  /* bredde pr. brand */
   column-gap: 40px;
-  justify-content: start;
-  align-items: start;
+  align-items: center;
+  /* centrer logo-rækken vertikalt mod h3 */
 }
 
-
-.brands>p:first-child {
-  grid-column: 1 / span 100;
-  margin: 0 0 var(--smSpacer);
-  font-weight: 700;
-  font-size: var(--font-size-large);
-  line-height: 1.25;
+/* H3 bliver venstre “sidebar”, spænder begge rækker */
+.brands>h3 {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  /* over begge rækker */
+  margin: 0;
+  max-width: 22ch;
+  /* så den ikke flyder for langt ud */
+  line-height: 1.1;
 }
 
-/* Logo + label */
+/* Logo-bobler (række 1) */
 .brands img {
-  grid-row: 2;
-  width: 140px;
-  height: 140px;
+  grid-row: 1;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
   border-radius: 50%;
   display: block;
 }
 
+/* Label under hvert logo (række 2, samme kolonne som billedet) */
 .brands img+p {
-  grid-row: 3;
+  grid-row: 2;
   margin: 8px 0 0;
   text-align: center;
   font-size: var(--font-size-normal);
 }
 
+/* generel nulmargin for p i blokken */
 .brands p {
   margin: 0;
 }
-
-/* ===== Foodstory highlight ===== */
-
+/* Foodstory highlight */
 .FoodstoryHighlight {
   max-width: var(--container);
   padding-top: var(--lgSpacer);
-  width: 1380px;
+  width: 1330px;
   margin: var(--gutter);
   border-radius: 14px;
   overflow: hidden;
-
 }
 
-/* Top med titel */
 .FoodstoryHighlight .fsHeader {
   background: var(--WarmSand);
   padding: 18px var(--gutter);
@@ -866,7 +881,7 @@ RECIPE SIDEN ------------ */
 .FoodstoryHighlight .fsMedia img {
   display: block;
   width: 100%;
-  height: 360px;
+  height: 400px;
   object-fit: cover;
 }
 
@@ -899,15 +914,14 @@ RECIPE SIDEN ------------ */
   box-shadow: 0 3px 0 rgba(0, 0, 0, .18);
 }
 
-/* Comments / Reviews */
 
+/* Comments / Reviews */
 .kommentarer {
   max-width: var(--container);
   width: 100%;
   margin: var(--lgSpacer) auto;
   padding: 0 var(--gutter);
 }
-
 
 .kommentarer .overskrift {
   display: flex;
@@ -936,7 +950,6 @@ RECIPE SIDEN ------------ */
   margin-left: 12px;
 }
 
-
 .anmeldelser {
   display: grid;
   grid-template-columns: 480px 480px;
@@ -950,6 +963,8 @@ RECIPE SIDEN ------------ */
   border-radius: 8px;
   padding: 14px 16px;
   box-shadow: 0 2px 0 rgba(0, 0, 0, .06);
+  margin-top: var(--smSpacer);
+  margin-bottom: var(--smSpacer);
 }
 
 .forfatter {
@@ -966,7 +981,7 @@ RECIPE SIDEN ------------ */
   color: #444;
 }
 
-/* Stjerner – se W3Schools kilde i html */
+/* Stjerner */
 .stjerner {
   margin: 2px 0 8px;
 }
@@ -979,7 +994,6 @@ RECIPE SIDEN ------------ */
 .stjerner .valgt {
   color: #e3b322;
 }
-
 
 /* Tekster */
 .titel {
@@ -1003,9 +1017,7 @@ RECIPE SIDEN ------------ */
   margin: 0;
 }
 
-/* Knapper */
-
-/* Knap-område */
+/* Knapper (review handlinger) */
 .handlinger {
   display: flex;
   gap: 12px;
@@ -1032,16 +1044,15 @@ RECIPE SIDEN ------------ */
   margin: 0 !important;
 }
 
-
 .handlinger .ikonKnap .ikon-knap {
   width: 16px;
   height: 16px;
   display: block;
   filter: brightness(0) invert(1);
-  
 }
 
 
+/* Also interested */
 .AlsoInterested {
   max-width: var(--container);
   width: 100%;
@@ -1058,13 +1069,13 @@ RECIPE SIDEN ------------ */
 
 
 /* ----------------
-  PROFIL SIDEN ------------ */
+  PROFIL SIDEN
+------------------ */
 
 .profile {
   width: 100%;
   max-width: var(--container);
   margin: var(--lgSpacer) auto var(--stdSpacer);
-  padding-left: var(--gutter);
   padding-right: var(--gutter);
   display: grid;
   grid-template-columns: minmax(600px, 1fr) 240px 10px 350px;
@@ -1097,6 +1108,7 @@ RECIPE SIDEN ------------ */
   margin-top: 25px;
 }
 
+/* generel btn (profilside) */
 .btn {
   padding: 10px 9px;
   border-radius: 14px;
@@ -1164,14 +1176,11 @@ RECIPE SIDEN ------------ */
 }
 
 
-
 /* Chefs’ top recipes */
-
 .ChefsTopRecipes {
   max-width: var(--container);
   width: 100%;
   margin-inline: auto;
-  padding: var(--smSpacer) var(--gutter) 0;
 }
 
 .ChefsTopRecipes h2 {
@@ -1185,7 +1194,7 @@ RECIPE SIDEN ------------ */
   justify-content: start;
 }
 
-/* === Kort === */
+/* Kort */
 .ChefrecipeCards .card {
   position: relative;
   width: var(--card-w);
@@ -1226,7 +1235,6 @@ RECIPE SIDEN ------------ */
   bottom: 30px;
   font-size: var(--font-size-h2);
   line-height: 1.5;
-
 }
 
 .ChefrecipeCards .card p {
@@ -1240,12 +1248,12 @@ RECIPE SIDEN ------------ */
 .rating {
   position: absolute;
   top: 10px;
-  left: 195px;
+  left: 160px;
   display: flex;
   align-items: center;
   gap: 6px;
   background: #fff;
-  padding: 6px 12px;
+  padding: 6px 19px;
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
   font-size: var(--font-size-small);
@@ -1271,8 +1279,8 @@ RECIPE SIDEN ------------ */
   border-radius: 14px;
 }
 
-/* chef tips and advice cards  */
 
+/* chef tips and advice cards  */
 .ChefsTopTips {
   max-width: var(--container);
   width: 100%;
@@ -1285,7 +1293,7 @@ RECIPE SIDEN ------------ */
   padding-bottom: var(--smSpacer);
 }
 
-/* Grid: 3 kort á 448px (matcher dine tokens) */
+/* Grid: 3 kort á 448px */
 .tipsCards {
   display: grid;
   grid-template-columns: repeat(3, var(--card-w));
@@ -1293,7 +1301,7 @@ RECIPE SIDEN ------------ */
   justify-content: start;
 }
 
-/* ===== Kort ===== */
+/* Kort */
 .tip-card {
   position: relative;
   display: block;
@@ -1329,7 +1337,6 @@ RECIPE SIDEN ------------ */
   font-family: "Petit Formal Script", cursive;
   z-index: 2;
   font-size: var(--font-size-h2);
-
 }
 
 .tip-card:hover img {
@@ -1357,7 +1364,8 @@ RECIPE SIDEN ------------ */
   box-shadow: 0 4px 0 rgba(0, 0, 0, .18);
 }
 
-/* ===== Food stories ===== */
+
+/* Food stories blok */
 .ChefsFoodstories {
   max-width: var(--container);
   width: 98%;
@@ -1410,7 +1418,6 @@ RECIPE SIDEN ------------ */
   height: 200px;
   object-fit: cover;
   border-radius: 14px;
-
 }
 
 /* Tekst */
@@ -1428,7 +1435,6 @@ RECIPE SIDEN ------------ */
   font-size: var(--font-size-normal);
   line-height: 1.6;
   color: #2a2724;
-
 }
 
 /* Link med pil */
@@ -1442,8 +1448,10 @@ RECIPE SIDEN ------------ */
 }
 
 
+/* ----------------
+   FOODSTORY SIDEN
+------------------ */
 
-/* FOODSTORY SIDEN */
 .heroImgFood {
   width: 1440px;
   height: 550px;
@@ -1455,12 +1463,11 @@ RECIPE SIDEN ------------ */
   margin-right: 380px;
   margin-top: 50px;
   margin-bottom: 50px;
-  line-height: 150%;
+  line-height: 2;
 }
 
 .view-all--india {
   background: var(--RustyRed);
   color: #fff;
   margin-left: var(--gutter);
-
 }

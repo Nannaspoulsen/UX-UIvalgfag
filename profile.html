@@ -39,7 +39,7 @@
             ><img
               src="./assets/icons/user-regular-full.svg"
               alt="User-icon"
-            /><span>Hi Mads!</span></a
+            /><span>Login</span></a
           >
         </div>
       </nav>
@@ -79,7 +79,7 @@
         <h2>Mads’ top 3 recipes</h2>
         <div class="ChefrecipeCards">
     
-            <div class="card">
+            <div class="card is-link" onclick="location.href='./recipe.html'">
                 <img src="./assets/img/butter_chicken_01541_16x9.jpg" alt="Easy Butter Chicken">
                 <!-- Se kilde til w3schools på linje 8 -->
                 <div class="rating">
@@ -97,7 +97,6 @@
             <div class="card is-selected">
                 <img src="./assets/img/chicken_65_51068_16x9.jpg" alt="Chicken 65">
                 <div class="rating">
-                    <!-- 4.9 ≈ 4 fulde + ½ (afrundet) -->
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
@@ -110,9 +109,9 @@
             </div>
     
             <div class="card">
+              <!-- https://www.bbc.co.uk/food/recipes/lamb_tagine_96490 -->
                 <img src="./assets/img/lamb_tagine_96490_16x9.jpg" alt="Lamb Tagine">
                 <div class="rating">
-                    <!-- 4.6 ≈ 4 fulde + ½ -->
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
@@ -134,16 +133,19 @@
     
         <div class="tipsCards">
             <a class="tip-card" href="#">
+              <!-- https://unsplash.com/photos/a-close-up-of-a-plate-of-fruit-on-a-table-vxtBBfMTMZ0 -->
                 <img src="./assets/img/desirae-hayes-vitor-vxtBBfMTMZ0-unsplash.jpg" alt="How to cut mango">
                 <span class="tip-title">How to cut mango</span>
             </a>
     
             <a class="tip-card" href="#">
+              <!-- https://unsplash.com/photos/stack-of-onion-bulbs-2wsAcKw9_Qo -->
                 <img src="./assets/img/tom-hermans-2wsAcKw9_Qo-unsplash.jpg" alt="How to cut onion">
                 <span class="tip-title">How to cut onion</span>
             </a>
     
             <a class="tip-card" href="#">
+              <!-- https://unsplash.com/photos/white-garlic-on-black-table-2yNBQFwZCA8 -->
                 <img src="./assets/img/tijana-drndarski-2yNBQFwZCA8-unsplash.jpg" alt="How to prep garlic">
                 <span class="tip-title">How to prep garlic</span>
             </a>
@@ -160,6 +162,7 @@
             <!-- Story 1 -->
             <article class="story">
                 <div class="story-media">
+                  <!-- https://www.bbc.co.uk/food/articles/japanese_ingredient -->
                     <img src="./assets/img/cody-chan-FyerbLWRr2M-unsplash.jpg" alt="Japanese ingredients on a table">
                 </div>
                 <div class="story-content">
@@ -180,6 +183,7 @@
             <!-- Story 2 (billedet til højre med .story--reverse i CSS) -->
             <article class="story story--reverse">
                 <div class="story-media">
+                  <!-- https://www.bbc.co.uk/food/articles/how_to_make_perfect_pasta -->
                     <img src="./assets/img/p0dmxdby.jpg" alt="Fresh pasta on a board">
                 </div>
                 <div class="story-content">
@@ -201,8 +205,10 @@
     </section>
 <section class="brands">
     <h3>The chef uses products from the following brands</h3>
+    <!--https://unsplash.com/photos/brown-powder-in-stainless-steel-cooking-pot-6WFh7sSBH-c -->
     <img src="./assets/img/Kenwood.jpg" alt="Kenwood" />
     <p>Kenwood</p>
+    <!-- https://unsplash.com/photos/stainless-steel-cooking-pots-on-stainless-steel-tray-RSpq9P2vttE -->
     <img src="./assets/img/Jamie Oliver.jpg" alt="Jamie Oliver" />
     <p>Jamie Oliver</p>
 </section>

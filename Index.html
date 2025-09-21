@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- Vi har kæmpet noget med vores stjern ikoner (rating) men fandt en anden løsning på W3Schools, så her er en kilde: https://www.w3schools.com/howto/howto_css_star_rating.asp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="./assets/js/app.js" defer></script>
   </head>
@@ -28,49 +30,80 @@
           <input type="text" placeholder="Search..." />
         </div>
         <div class="login">
-          <a href="#"><img src="./assets/icons/user-regular-full.svg" alt="User-icon" /><span>Hi Mads!</span></a>
+          <!-- Ikon indikere bruger i nav
+Kilde: https://fontawesome.com/icons/user?f=classic&s=regular -->
+          <a href="#"><img src="./assets/icons/user-regular-full.svg" alt="User-icon" /><span>Login</span></a>
         </div>
       </nav>
       <div class="hero">
+        <!--HERO BILLEDE hentet fra: https://www.pexels.com/da-dk/foto/trae-kvinde-kokken-smile-8902014/  -->
       </div>
     </header>
     <main>
-      <div class="TodaysTopRecipes">
-        <h1>Today's Top Recipes</h1>
-        <div class="recipeCards">
-          <div class="card is-link" onclick="location.href='./recipe.html'">
-            <img src="./assets/img/butter_chicken_01541_16x9.jpg" alt="Easy Butter Chicken" />
-            <h3>Easy Butter Chicken</h3>
-            <p>
-              <a href="./profile.html">by Mads Madsen</a>
-            </p>
+    <div class="TodaysTopRecipes">
+      <h2>Today's top recipes</h2>
+    
+      <div class="ChefrecipeCards">
+        <div class="card is-link" onclick="location.href='./recipe.html'">
+          <img src="./assets/img/butter_chicken_01541_16x9.jpg" alt="Easy Butter Chicken">
+          <div class="rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star-half-o checked"></span>
+            <span class="rating__meta">4.7 · 202 reviews</span>
           </div>
-
-          <div class="card">
-            <img src="./assets/img/chicken_65_51068_16x9.jpg" alt="Food2" />
-            <h3>Chicken 65</h3>
-            <p>by Mads Madsen</p>
-          </div>
-          <div class="card">
-            <img src="./assets/img/lamb_tagine_96490_16x9.jpg" alt="Food3" />
-            <h3>Lamb Tagine</h3>
-            <p>by Mads Madsen</p>
-          </div>
+          <h3>Easy Butter Chicken</h3>
+          <p>by Mads Madsen</p>
         </div>
-      </div>
+    
+        <div class="card is-selected">
+          <img src="./assets/img/chicken_65_51068_16x9.jpg" alt="Chicken 65">
+          <div class="rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star-half-o checked"></span>
+            <span class="rating__meta">4.9 · 152 reviews</span>
+          </div>
+          <h3>Chicken 65</h3>
+          <p>by Mads Madsen</p>
+        </div>
+    
+        <div class="card">
+          <img src="./assets/img/lamb_tagine_96490_16x9.jpg" alt="Lamb Tagine">
+          <div class="rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star-half-o checked"></span>
+            <span class="rating__meta">4.6 · 189 reviews</span>
+          </div>
+          <h3>Lamb Tagine</h3>
+          <p>by Mads Madsen</p>
+        </div>
+      </div><!-- /ChefrecipeCards -->
+    </div><!-- /TodaysTopRecipes -->
+
 
       <div class="TodaysTopFoodstories">
         <h1>Today's Top Food Stories</h1>
         <div class="storyCards">
           <div class="SingleStoryCard">
+            <!-- https://unsplash.com/photos/people-near-taj-mahal-eU4pipU_8HA -->
             <img src="./assets/img/sylwia-bartyzel-eU4pipU_8HA-unsplash.jpg" alt="Story" />
             <h2>Food Stories from India</h2>
           </div>
           <div class="SingleStoryCard">
+            <!-- https://unsplash.com/photos/pagoda-surrounded-by-trees-E_eWwM29wfU -->
             <img src="./assets/img/su-san-lee-E_eWwM29wfU-unsplash.jpg" alt="Story2" />
             <h2>Food Stories from Japan</h2>
           </div>
           <div class="SingleStoryCard">
+            <!-- https://unsplash.com/photos/low-angle-photography-of-the-parthenon-greece-DELDTYAjPrg -->
             <img src="./assets/img/hans-reniers-DELDTYAjPrg-unsplash.jpg" alt="Story3" />
             <h2>Food Stories from Greece</h2>
           </div>
@@ -78,6 +111,7 @@
       </div>
 <section class="chefsPromo">
   <div class="chefsPromoCard">
+    <!-- https://www.pexels.com/da-dk/foto/restaurant-blomster-maend-kvinder-23830927/ -->
     <img src="./assets/img/pexels-sarabjeet-singh-1227495373-23830927.jpg" alt="Gruppens kokke sidder sammen">
     <a href="/chefs" class="chefsPromoBtn">
       <h2>Meet the chefs</h2>

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./assets/CSS/style.css" />
     <script src="./assets/JS/app.js" defer></script>
 </head>
+<header>
 <nav>
     <div class="navbarLogo">
         <a href="./Index.html">
@@ -28,14 +29,27 @@
         <input type="text" placeholder="Search..." />
     </div>
     <div class="login">
-        <a href="#"><img src="./assets/icons/user-regular-full.svg" alt="User-icon" /><span>Hi Mads!</span></a>
+        <a href="#"><img src="./assets/icons/user-regular-full.svg" alt="User-icon" /><span>Login</span></a>
     </div>
 </nav>
-<header>
     <img src="./assets/img/sylwia-bartyzel-eU4pipU_8HA-unsplash.jpg" alt="Indian" class="heroImgFood" />
 </header>
 
-<!-- Her skal være profil card -->
+<section class="profileCardFoodstory">
+    <img src="./assets/img/MadsMadsen.png" alt="Mads Madsen" class="profilePic" />
+    <div class="cardContent">
+        <h2 class="name">Mads Madsen</h2>
+        <p class="description">
+            Mads believes great food is about sharing - from fine dining to
+            everyday meals. Follow his journey and get inspired by recipes and
+            stories from a Michelin chef’s kitchen.
+        </p>
+        <div class="buttons">
+            <button class="btn profile" type="button" onclick="location.href='./profile.html'">See profile</button>
+            <button class="btn follow">Follow chef</button>
+        </div>
+    </div>
+</section>
 
 <article class="foodstoryContent">
     <h1>Foodstory from india</h1>
@@ -54,7 +68,7 @@
         sauté-based dishes,” explains Mads. “As someone whose job it is to cook
         all day, the food I want to eat tends to be on the quick and simple side.
         Not overly spiced but still boasting big, bold flavours,” says Mads.
-        Here’s her advice on creating Indian dinners without breaking a sweat…
+        Here’s her advice on creating Indian dinners without breaking a sweat.
     </p>
     <br />
 
@@ -88,20 +102,45 @@
     <h1>More inspiring recipes from the Indian kitchen</h1>
     <div class="recipeCards">
         <div class="card is-link" onclick="location.href='./recipe.html'">
-            <img src="./assets/img/butter_chicken_01541_16x9.jpg" alt="Easy Butter Chicken" />
+            <img src="./assets/img/butter_chicken_01541_16x9.jpg" alt="Easy Butter Chicken">
+            <!-- Se kilde til w3schools på linje 8 -->
+            <div class="rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star-half-o checked"></span>
+                <span class="rating__meta">4.7 · 202 reviews</span>
+            </div>
             <h3>Easy Butter Chicken</h3>
-            <p>
-                <a href="./profile.html">by Mads Madsen</a>
-            </p>
+            <p>by Mads Madsen</p>
         </div>
-
-        <div class="card">
-            <img src="./assets/img/chicken_65_51068_16x9.jpg" alt="Food2" />
+        
+        <div class="card is-selected">
+            <img src="./assets/img/chicken_65_51068_16x9.jpg" alt="Chicken 65">
+            <div class="rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star-half-o checked"></span>
+                <span class="rating__meta">4.9 · 152 reviews</span>
+            </div>
             <h3>Chicken 65</h3>
             <p>by Mads Madsen</p>
         </div>
+        
         <div class="card">
-            <img src="./assets/img/lamb_tagine_96490_16x9.jpg" alt="Food3" />
+            <!-- https://www.bbc.co.uk/food/recipes/lamb_tagine_96490 -->
+            <img src="./assets/img/lamb_tagine_96490_16x9.jpg" alt="Lamb Tagine">
+            <div class="rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star-half-o checked"></span>
+                <span class="rating__meta">4.6 · 189 reviews</span>
+            </div>
             <h3>Lamb Tagine</h3>
             <p>by Mads Madsen</p>
         </div>
