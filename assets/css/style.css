@@ -803,7 +803,8 @@ footer p:hover {
   margin: var(--lgSpacer) 0 var(--stdSpacer);
   padding-inline: var(--gutter);
   display: grid;
-  grid-template-rows: auto 160px auto; grid-auto-flow: column;
+  grid-template-rows: auto 160px auto;
+  grid-auto-flow: column;
   grid-auto-columns: 160px;
   column-gap: 40px;
   row-gap: 8px;
@@ -815,8 +816,12 @@ footer p:hover {
   grid-column: 1 / -1;
   grid-row: 1;
   margin: 0 0 var(--smSpacer);
-  line-height: 1.15;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+
 }
+
 
 .brands img {
   grid-row: 2;
@@ -826,7 +831,6 @@ footer p:hover {
   border-radius: 50%;
   display: block;
 }
-
 
 .brands img+p {
   grid-row: 3;
